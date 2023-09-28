@@ -30,11 +30,11 @@ questions = [
 answers = prompt(questions)
 
 if answers[ACTION] == GET_BEST_NUMBER:
-    response = requests.get('http://172.17.0.5:8000/bestnumber')
+    response = requests.get('http://best-number-backend:8000/bestnumber')
     print(response.text)
 
 elif answers[ACTION] == SET_BEST_NUMBER:
-    response = requests.post('http://172.17.0.5:8000/bestnumber', json={'bestNumber': int(answers[BEST_NUMBER])})
+    response = requests.post('http://best-number-backend:8000/bestnumber', json={'bestNumber': int(answers[BEST_NUMBER])})
     if response.status_code == 200:
         print('Best number saved')
     else:
